@@ -1,0 +1,239 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,700;1,400&family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,500;0,700;1,500&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: x-large;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url(/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: bold;
+  font-size: x-large;
+  font-weight: 700;
+  font-display: optional;
+  src: url(/fonts/Poppins-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-size: x-large;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url(/fonts/Poppins-Italic.woff2) format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .icon {
+    @apply w-6 h-6;
+  }
+
+  .max-w-custom {
+    @apply px-8 md:px-0 mx-auto md:max-w-[75%] 2xl:max-w-[60%];
+  }
+
+  body {
+    @apply dark:bg-[#121212] selection:bg-accent selection:text-white dark:selection:bg-accent_dark;
+  }
+
+  div {
+    @apply dark:border-[#303030];
+  }
+
+  h1 {
+    @apply text-2xl md:text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply md:text-lg font-semibold mb-3;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  p,
+  li,
+  a {
+    @apply md:text-lg;
+  }
+
+  /* a {
+    @apply text-accent dark:text-accent_dark;
+  } */
+
+  p,
+  li {
+    @apply dark:text-[#9b9b9b];
+  }
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+article .heading-hook {
+  @apply absolute invisible w-full h-full -ml-6 md:-ml-10 cursor-pointer;
+
+  /* right: 50%; */
+
+  /* margin-left: -1em; */
+  /* padding-right: 0.5em; */
+  /* width: 80%;
+  max-width: 700px; */
+  /* cursor: pointer; */
+}
+.skip-nav {
+  @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
+}
+#skip {
+  scroll-margin-top: 2rem;
+}
+
+h1 > .heading-hook {
+  @apply text-2xl md:text-4xl;
+}
+
+h2 > .heading-hook {
+  @apply text-xl md:text-2xl  -ml-5 md:-ml-6;
+}
+
+h3 > .heading-hook {
+  @apply md:text-lg -ml-5;
+}
+.heading-hook:hover {
+  @apply visible no-underline;
+}
+
+article a {
+  @apply transition-all;
+}
+
+article .heading-hook:after {
+  content: "#";
+  @apply text-tertiary   dark:text-[#9b9b9b];
+  /* 📎🧷👁‍🗨⚓ */
+}
+
+article *:hover > .heading-hook {
+  @apply visible no-underline;
+}
+/* Code Highlighter i.e. PrismJS */
+.rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-tertiary_dark dark:text-tertiary  bg-tertiary  rounded-t-md  dark:bg-tertiary_dark;
+}
+
+/* .rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+} */
+
+.highlight-line {
+  @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-[#f8f8f8] dark:bg-[#171717] mb-5;
+}
+
+pre[class*="language-"] {
+  @apply p-4 overflow-x-auto  rounded-b-md;
+}
+/* [class*="language-"] */
+:not(pre) > code {
+  /* padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal; */
+  @apply bg-secondary_dark/10 dark:bg-secondary/10 dark:text-white p-1 rounded-md;
+}
+.token.block-comment,
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+  /* color: #999; */
+  @apply text-green-500;
+}
+.token.punctuation {
+  @apply text-neutral-500;
+}
+.token.attr-name,
+.token.deleted,
+.token.namespace,
+.token.tag {
+  @apply text-pink-500;
+}
+.token.function-name {
+  /* color: #6196cc; */
+  @apply text-blue-500;
+}
+.token.boolean,
+.token.function,
+.token.number {
+  /* color: #f08d49; */
+  @apply text-red-500;
+}
+.token.class-name,
+.token.constant,
+.token.property,
+.token.symbol {
+  /* color: #f8c555; */
+  @apply text-orange-500;
+}
+.token.atrule,
+.token.builtin,
+.token.important,
+.token.keyword,
+.token.selector {
+  /* color: #cc99cd; */
+  @apply text-fuchsia-500;
+}
+.token.attr-value,
+.token.char,
+.token.regex,
+.token.string,
+.token.variable {
+  @apply text-teal-500;
+}
+.token.entity,
+.token.operator,
+.token.url {
+  @apply text-yellow-500;
+}
+.token.bold,
+.token.important {
+  font-weight: 700;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+.token.inserted {
+  @apply text-green-500;
+}
