@@ -1,5 +1,3 @@
-https://subash-portfolio.vercel.app/
 
 # This site is live
-
-➡️ (view live)[https://subash-portfolio.vercel.app/]
+[View Live ➡ ](https://subash-portfolio.vercel.app/)
