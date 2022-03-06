@@ -1,8 +1,24 @@
-import { useRef } from "react";
+import axios from "axios";
+import { useRef, useEffect, useState } from "react";
 import { Button } from ".";
 
 function Newsletter() {
   const inputRef = useRef();
+
+  const [subscriberCount, setSubscriberCount] = useState(0);
+
+  useEffect(async () => {
+    const res = await axios.get("https://www.getrevue.co/api/v2/subscribers", {
+      // method: "GET",
+      headers: {
+        Authorization: `Token ${process.env.REVUE_API_KEY}`,
+      },
+    });
+    const data = await res.json();
+    setSubscriberCount(data.length);
+    // .then((res) => console.log("Res count => ", res.json()))
+    // .then((res) => setSubscriberCount(res.count));
+  }, []);
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -28,7 +44,8 @@ function Newsletter() {
 
   return (
     <div className="mt-20 space-y-5 p-10 rounded-md bg-accent/10 dark:bg-accent_dark/5">
-      <h2>
+      <h2 className="text-3xl">{subscriberCount}</h2>
+      <h2 className="font-bold">
         <span className="text-accent dark:text-accent_dark">Hooyah!</span> Get
         In Touch By Subscribing To The Newsletter{" "}
         <span className="text-accent dark:text-accent_dark">.</span> (work in
