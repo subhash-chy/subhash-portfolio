@@ -20,7 +20,6 @@ function Newsletter() {
     });
     const data = await res.json();
     setSubscriberCount(data.stats.member_count.toString());
-    console.log("Data =>", data);
   }
 
   const subscribe = async (e) => {

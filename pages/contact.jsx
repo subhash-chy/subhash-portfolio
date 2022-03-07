@@ -31,7 +31,6 @@ function Contact() {
     nameRef.current.value = "";
     emailRef.current.value = "";
     messageRef.current.value = "";
-    console.log("Response=>", response);
   };
 
   return (
