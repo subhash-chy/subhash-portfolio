@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 // Using the path coming from `getStaticPaths()` to get the post details
 export async function getStaticProps({ params }) {
   const datas = (await getPostDetails(params.slug)) || [];
-  const source = datas.markdown;
+  const source = datas?.markdown;
   const { content, data } = matter(source);
   const mdx = await serialize(content, {
     scope: data,
