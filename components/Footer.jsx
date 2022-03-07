@@ -9,25 +9,39 @@ function Footer() {
           <h2 className="mb-5">SUBASH CHAUDHARY</h2>
           <div className="flex flex-col gap-2">
             <Link href="/" passHref>
-              <a>Home</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                Home
+              </a>
             </Link>
             <Link href="/my-projects" passHref>
-              <a>My Projects</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                My Projects
+              </a>
             </Link>
             <Link href="/about" passHref>
-              <a>About</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                About
+              </a>
             </Link>
             <Link href="/contact" passHref>
-              <a>Contact</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                Contact
+              </a>
             </Link>
             <Link href="/sitemap.xml" passHref>
-              <a>Sitemap</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                Sitemap
+              </a>
             </Link>
             <Link href="/privacy-policy" passHref>
-              <a>Privacy Policy</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                Privacy Policy
+              </a>
             </Link>
             <Link href="/blog" passHref>
-              <a>Blogs</a>
+              <a className="hover:text-accent dark:hover:text-accent_dark">
+                Blogs
+              </a>
             </Link>
           </div>
         </div>

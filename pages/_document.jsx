@@ -11,6 +11,11 @@ function Document(props) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
+
+        <meta
+          name="google-site-verification"
+          content=" V8plfmHs6tIBpKivorNTMKn-zQH6sknk8LdwAqsjjDU"
+        />
       </Head>
       <body>
         <Main />

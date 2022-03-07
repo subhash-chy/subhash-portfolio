@@ -1,24 +1,22 @@
-import axios from "axios";
+import mailchimp from "@mailchimp/mailchimp_marketing";
+
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_API_SERVER, // e.g. us1
+});
 
 export default async function handler(_, res) {
-  const result = await axios
-    .get("https://www.getrevue.co/api/v2/subscribers", {
-      headers: {
-        Authorization: `Token ${process.env.REVUE_API_KEY}`,
-      },
-    })
-    .then((res) => console.log(res.ok))
-    .catch((error) => console.log(error))
-    .then((res) => console.log(res));
+  try {
+    const response = await mailchimp.lists.getList(
+      process.env.MAILCHIMP_AUDIENCE_ID
+    );
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=1200, stale-while-revalidate=600"
+    );
 
-  if (!result.ok) {
-    return res.status(500).json({ error: "Error retrieving subscribers" });
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal server error!" });
   }
-
-  // res.setHeader(
-  //   "Cache-Control",
-  //   "public, s-maxage=1200, stale-while-revalidate=600"
-  // );
-
-  return res.status(200).json({ count: data.length });
 }

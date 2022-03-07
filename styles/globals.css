@@ -237,3 +237,20 @@ pre[class*="language-"] {
 .token.inserted {
   @apply text-green-500;
 }
+
+/* NProgress */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply bg-accent dark:bg-accent_dark;
+}
+#nprogress .bar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
