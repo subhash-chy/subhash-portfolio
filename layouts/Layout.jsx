@@ -13,10 +13,12 @@ function Layout(props) {
     type: "website",
     ...customMetaData,
   };
+
   return (
     <>
       <Head>
         <title>{metaData.title}</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="follow, index" />
         <meta content={metaData.description} name="description" />
         <meta
