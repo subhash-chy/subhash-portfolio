@@ -1,26 +1,15 @@
 import { useRef, useEffect, useState } from "react";
 import { Button } from ".";
+import useSWR from "swr";
 
 function Newsletter() {
   const inputRef = useRef();
 
-  const [subscriberCount, setSubscriberCount] = useState(0);
   const [message, setMessage] = useState("");
+  const fetcher = (url) => fetch(url).then((r) => r.json());
 
-  useEffect(() => {
-    fetchSubscribers();
-  }, []);
-
-  async function fetchSubscribers() {
-    const res = await fetch("/api/subscribers", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-    setSubscriberCount(data.stats.member_count.toString());
-  }
+  const { data } = useSWR("/api/subscribers", fetcher);
+  const subscriberCount = data?.stats.member_count;
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -40,7 +29,7 @@ function Newsletter() {
       .then(() => {
         inputRef.current.value = "";
         setTimeout(() => {
-          fetchSubscribers();
+          // fetchSubscribers();
           setMessage("");
         }, 2000);
       });
