@@ -1,11 +1,12 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from ".";
 import useSWR from "swr";
 
 function Newsletter() {
   const inputRef = useRef();
 
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("Subscribe");
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const { data } = useSWR("/api/subscribers", fetcher);
@@ -14,6 +15,7 @@ function Newsletter() {
   const subscribe = async (e) => {
     e.preventDefault();
     setMessage("Subscribing");
+    setLoading(true);
 
     await fetch("/api/subscribe", {
       body: JSON.stringify({
@@ -24,13 +26,15 @@ function Newsletter() {
       },
       method: "POST",
     })
-      .then(() => setMessage("Subscribed!"))
+      .then(() => {
+        setMessage("Subscribed!");
+        setLoading(false);
+      })
       .catch((error) => console.log(error))
       .then(() => {
         inputRef.current.value = "";
         setTimeout(() => {
-          // fetchSubscribers();
-          setMessage("");
+          setMessage("Subscribe");
         }, 2000);
       });
   };
@@ -58,15 +62,15 @@ function Newsletter() {
             placeholder="you@gmail.com"
             required
           />
-          <Button title="Subscribe" highEmphasis />
+          <Button title={message} highEmphasis loading={loading} />
         </div>
         <div className="flex items-center justify-between">
           <p className="text-accent dark:text-accent_dark">
-            {subscriberCount} Subscribers
+            {subscriberCount > 0
+              ? `${subscriberCount} Subscribers`
+              : `No Subscriber`}
           </p>
-          <p>{message}</p>
         </div>
-        {/* <button type="submit">Subscribe</button> */}
       </form>
     </div>
   );

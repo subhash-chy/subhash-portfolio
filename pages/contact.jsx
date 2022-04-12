@@ -7,10 +7,12 @@ function Contact() {
   const emailRef = useRef(null);
   const messageRef = useRef(null);
 
-  const [loading, setLoading] = useState("Send Message");
+  const [loading, setLoading] = useState(false);
+  const [buttonTitle, setButtonTitle] = useState("Send Message");
 
   const sendMail = async (e) => {
-    setLoading("Sending..");
+    setLoading(true);
+    setButtonTitle("Sending!");
     e.preventDefault();
 
     // calling sendmail api endpoint
@@ -26,8 +28,14 @@ function Contact() {
       },
       method: "POST",
     });
-    response.ok && setLoading("Message Sent Successfully");
-    setTimeout(() => setLoading("Send Message"), 2500);
+    setLoading(false);
+    response.ok
+      ? setButtonTitle("Message Sent!")
+      : setButtonTitle("Message Not Sent!");
+
+    setTimeout(() => {
+      setButtonTitle("Send Message");
+    }, 2500);
     nameRef.current.value = "";
     emailRef.current.value = "";
     messageRef.current.value = "";
@@ -53,10 +61,6 @@ function Contact() {
         }}
       />
       <div className="py-20 max-w-custom space-y-20">
-        {/* <div className="space-y-5">
-          <h1>My Email</h1>
-          <p>imsuubash@gmail.com</p>
-        </div> */}
         <div className="space-y-5">
           <h1>Send Message</h1>
           <form className="space-y-8" onSubmit={sendMail}>
@@ -95,7 +99,7 @@ function Contact() {
               ></textarea>
             </div>
             <div className="flex">
-              <Button title={`${loading}`} />
+              <Button title={buttonTitle} highEmphasis loading={loading} />
               <p></p>
             </div>
           </form>

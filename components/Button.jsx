@@ -1,7 +1,8 @@
 import React from "react";
 import { CgArrowLongRight } from "react-icons/cg";
+import { RiLoader3Fill } from "react-icons/ri";
 
-function Button({ title, highEmphasis, onClick }) {
+function Button({ title, highEmphasis, onClick, loading }) {
   return (
     <button
       className={`flex items-center justify-center gap-3  group  ${
@@ -11,7 +12,11 @@ function Button({ title, highEmphasis, onClick }) {
       }`}
       onClick={onClick}
     >
-      <span>{title}</span>
+      <div className=" w-full h-full flex gap-2 items-center justify-center">
+        <span>{title}</span>
+        {loading == true && <RiLoader3Fill className="animate-spin icon" />}
+      </div>
+
       {!highEmphasis && (
         <CgArrowLongRight className="mt-1 group-hover:ml-1 transition-all" />
       )}
