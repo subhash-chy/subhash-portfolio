@@ -99,7 +99,9 @@ function Contact() {
               ></textarea>
             </div>
             <div className="flex">
-              <Button title={buttonTitle} highEmphasis loading={loading} />
+              <Button highEmphasis loading={loading}>
+                {buttonTitle}
+              </Button>
               <p></p>
             </div>
           </form>

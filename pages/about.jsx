@@ -33,7 +33,7 @@ function About() {
 
             {/* Show if there is any button */}
             {data.button && (
-              <Button title={data.button.title} onClick={data.button.onClick} />
+              <Button onClick={data.button.onClick}>{data.button.title}</Button>
             )}
           </div>
         ))}

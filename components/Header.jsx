@@ -60,7 +60,7 @@ function Header(props) {
                 <p className="text-xs md:text-base">{read_time} min read</p>
               </div>
             )}
-            {button && <Button title={button.title} onClick={button.onClick} />}
+            {button && <Button onClick={button.onClick}>{button.title}</Button>}
             {searchbar && (
               <div className="bg-white rounded-md dark:bg-[#222222] flex items-center justify-between">
                 <input

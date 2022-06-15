@@ -60,7 +60,7 @@ function FeaturedPosts() {
         })}
       </div>
       {/* Change title button according to page opened */}
-      <Button title="Read All Blogs" onClick={() => router.push("/blog")} />
+      <Button onClick={() => router.push("/blog")}>Read All Blogs</Button>
     </div>
   );
 }

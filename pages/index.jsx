@@ -26,11 +26,12 @@ const Home = () => {
             TailwindCSS.
           </p>
           <Button
-            title="Know More"
             onClick={() => {
               router.push("/about");
             }}
-          />
+          >
+            Know More
+          </Button>
         </div>
 
         {/* Featured blog post section */}

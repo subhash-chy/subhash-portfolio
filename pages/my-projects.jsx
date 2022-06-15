@@ -83,7 +83,6 @@ function MyProjects() {
                 <p className="max-w-full">{data.description}</p>
                 {data.link && (
                   <Button
-                    title="Live View"
                     onClick={() => {
                       window.open(
                         "https://chaudharysubash.vercel.app",
@@ -91,7 +90,9 @@ function MyProjects() {
                         "noopener noreferrer"
                       );
                     }}
-                  />
+                  >
+                    Live View
+                  </Button>
                 )}
               </div>
             </div>

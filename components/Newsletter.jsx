@@ -10,7 +10,7 @@ function Newsletter() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const { data } = useSWR("/api/subscribers", fetcher);
-  const subscriberCount = data?.stats.member_count;
+  const subscriberCount = data?.stats?.member_count;
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -62,7 +62,9 @@ function Newsletter() {
             placeholder="you@gmail.com"
             required
           />
-          <Button title={message} highEmphasis loading={loading} />
+          <Button highEmphasis loading={loading}>
+            {message}
+          </Button>
         </div>
         <div className="flex items-center justify-between">
           <p className="text-accent dark:text-accent_dark">
