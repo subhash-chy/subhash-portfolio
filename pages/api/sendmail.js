@@ -1,58 +1,34 @@
-const nodemailer = require("nodemailer");
-const { google } = require("googleapis");
+import nodemailer from "nodemailer";
+
 export default async function handler(req, res) {
-  const { name, email, message } = req.body;
-  // Getting all the tokens
-  const CLIENT_ID = process.env.GMAIL_API_CLIENT_ID;
-  const CLIENT_SECRET = process.env.GMAIL_API_CLIENT_SECRET;
-  const REDIRECT_URI = process.env.GMAIL_API_REDIRECT_URI;
-  const REFRESH_TOKEN = process.env.GMAIL_API_REFRESH_TOKEN;
-
-  const oAuth2Client = new google.auth.OAuth2(
-    CLIENT_ID,
-    CLIENT_SECRET,
-    REDIRECT_URI
-  );
-  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-  if (!name || !email || !message)
-    return res.status(411).json({ message: "Payload not provided!" });
-  //   async function sendmail() {
   try {
-    const accessToken = await oAuth2Client.getAccessToken();
-    const transport = nodemailer.createTransport({
+    const { name, email, message } = req.body;
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        type: "OAuth2",
-        user: "chaudharysubash55259807@gmail.com",
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: accessToken,
+        user: process.env.GMAIL_SMTP_USER,
+        pass: process.env.GMAIL_SMTP_PASSWORD,
       },
     });
 
     const mailOptions = {
-      from: "Subash <chaudharysubash55259807@gmail.com>",
-      to: "imchy.rahul@gmail.com",
-      subject: `${name}(${email}) contacted you from your site`,
-      text: message,
-      html: `<p>${message}</p>`,
+      from: `${name} <${process.env.GMAIL_SMTP_USER}>`,
+      to: `${process.env.GMAIL_SMTP_USER}`,
+      subject: `Message from ${name} <${email}>`,
+      html: `<div>
+              <p>From: ${email}</p>
+              <h1>Hey Subash!</h1>
+              <p><strong>${name}</strong> has messaged you from your site!</p>
+              <p><strong>Message:</strong> ${message}</p>
+            </div>`,
     };
 
-    const result = await transport.sendMail(mailOptions);
-    //   return result;
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) console.log("Cannot send a message");
+      else console.log(`Message has been sent successfully!`);
+    });
     return res.status(201).json({ message: "Message sent successfully!" });
   } catch (error) {
-    return res.status(501).json({ message: error });
+    return res.status(501).json({ message: `Something went wrong!` });
   }
-  //   }
-
-  //   sendmail()
-  //     .then((result) => {
-  //       return res.status(201).json({ message: "Message sent successfully!" });
-  //     })
-  //     .catch((error) =>
-  //       res.status(501).json({ message: `Something went wrong!`, error })
-  //     );
 }
