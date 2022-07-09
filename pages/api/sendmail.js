@@ -23,11 +23,21 @@ export default async function handler(req, res) {
             </div>`,
     };
 
-    transporter.sendMail(mailOptions, (err) => {
-      if (err) console.log("Cannot send a message");
-      else console.log(`Message has been sent successfully!`);
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+          console.log("Cannot send a message");
+          reject(err);
+          return res.status(501).json({ message: `Error: ${err}` });
+        } else {
+          console.log(`Message has been sent successfully!`);
+          resolve(info);
+          return res
+            .status(201)
+            .json({ message: "Message sent successfully!" });
+        }
+      });
     });
-    return res.status(201).json({ message: "Message sent successfully!" });
   } catch (error) {
     return res.status(501).json({ message: `Something went wrong!` });
   }
