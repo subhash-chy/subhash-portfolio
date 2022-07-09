@@ -51,6 +51,10 @@
     @apply px-8 md:px-0 mx-auto md:max-w-[75%] 2xl:max-w-[60%];
   }
 
+  .input-custom {
+    @apply p-3 outline-none w-full rounded-md dark:bg-[#222222] dark:focus:bg-[#252525];
+  }
+
   body {
     @apply dark:bg-[#121212] selection:bg-accent selection:text-white dark:selection:bg-accent_dark;
   }
