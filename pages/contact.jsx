@@ -68,7 +68,7 @@ function Contact() {
               <label htmlFor="name">Your Name</label>
               <input
                 ref={nameRef}
-                className="bg-secondary dark:bg-[#222222] p-3 outline-none w-full rounded-md"
+                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
                 type="text"
                 name="name"
                 // placeholder="Your Name"
@@ -79,7 +79,7 @@ function Contact() {
               <label htmlFor="email">Your E-mail</label>
               <input
                 ref={emailRef}
-                className="bg-secondary dark:bg-[#222222] p-3 outline-none w-full rounded-md"
+                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
                 type="email"
                 name="email"
                 placeholder="steve@gmail.com"
@@ -90,7 +90,7 @@ function Contact() {
               <label htmlFor="message">Your Message</label>
               <textarea
                 ref={messageRef}
-                className="bg-secondary dark:bg-[#222222] p-3 outline-none w-full rounded-md"
+                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
                 name="message"
                 // placeholder="Your Message..."
                 cols="30"

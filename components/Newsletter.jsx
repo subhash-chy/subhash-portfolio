@@ -56,10 +56,10 @@ function Newsletter() {
         <div className="flex flex-col md:flex-row gap-5 md:gap-0">
           <input
             ref={inputRef}
-            className=" dark:bg-[#222222] p-3 outline-none w-full rounded-sm"
+            className="input-custom bg-white/70 focus:bg-white"
             type="email"
             name="email"
-            placeholder="you@gmail.com"
+            placeholder="john@gmail.com"
             required
           />
           <Button highEmphasis loading={loading}>

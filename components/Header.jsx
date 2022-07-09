@@ -64,7 +64,7 @@ function Header(props) {
             {searchbar && (
               <div className="bg-white rounded-md dark:bg-[#222222] flex items-center justify-between">
                 <input
-                  className="bg-transparent p-3 outline-none w-full"
+                  className="bg-transparent input-custom"
                   type="search"
                   name="search"
                   placeholder={searchbar.placeholder}
