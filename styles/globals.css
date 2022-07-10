@@ -1,16 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,700;1,400&family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;700&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,500;0,700;1,500&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,400&display=swap"); */
-
 @font-face {
   font-family: "Poppins";
   font-style: normal;
@@ -85,10 +72,6 @@
     @apply md:text-lg;
   }
 
-  /* a {
-    @apply text-accent dark:text-accent_dark;
-  } */
-
   p,
   li {
     @apply dark:text-[#9b9b9b];
@@ -133,18 +116,12 @@ html {
 
 article .heading-hook {
   @apply absolute invisible w-full h-full -ml-6 md:-ml-10 cursor-pointer;
-
-  /* right: 50%; */
-
-  /* margin-left: -1em; */
-  /* padding-right: 0.5em; */
-  /* width: 80%;
-  max-width: 700px; */
-  /* cursor: pointer; */
 }
+
 .skip-nav {
   @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
 }
+
 #skip {
   scroll-margin-top: 2rem;
 }
@@ -177,14 +154,11 @@ article .heading-hook:after {
 article *:hover > .heading-hook {
   @apply visible no-underline;
 }
-/* Code Highlighter i.e. PrismJS */
+
+/* ---------------------Code Highlighter START-------------------- */
 .rehype-code-title {
   @apply px-5 py-3 font-mono text-sm font-bold text-tertiary_dark dark:text-tertiary  bg-tertiary  rounded-t-md  dark:bg-tertiary_dark;
 }
-
-/* .rehype-code-title + pre {
-  @apply mt-0 rounded-t-none;
-} */
 
 .highlight-line {
   @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
@@ -198,13 +172,11 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   @apply p-4 overflow-x-auto  rounded-b-md;
 }
-/* [class*="language-"] */
+
 :not(pre) > code {
-  /* padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal; */
   @apply bg-secondary_dark/10 dark:bg-secondary/10 dark:text-white p-1 rounded-md;
 }
+
 .token.block-comment,
 .token.cdata,
 .token.comment,
@@ -213,25 +185,29 @@ pre[class*="language-"] {
   /* color: #999; */
   @apply text-green-500;
 }
+
 .token.punctuation {
   @apply text-neutral-500;
 }
+
 .token.attr-name,
 .token.deleted,
 .token.namespace,
 .token.tag {
   @apply text-pink-500;
 }
+
 .token.function-name {
-  /* color: #6196cc; */
   @apply text-blue-500;
 }
+
 .token.boolean,
 .token.function,
 .token.number {
   /* color: #f08d49; */
   @apply text-red-500;
 }
+
 .token.class-name,
 .token.constant,
 .token.property,
@@ -239,6 +215,7 @@ pre[class*="language-"] {
   /* color: #f8c555; */
   @apply text-orange-500;
 }
+
 .token.atrule,
 .token.builtin,
 .token.important,
@@ -247,6 +224,7 @@ pre[class*="language-"] {
   /* color: #cc99cd; */
   @apply text-fuchsia-500;
 }
+
 .token.attr-value,
 .token.char,
 .token.regex,
@@ -254,26 +232,32 @@ pre[class*="language-"] {
 .token.variable {
   @apply text-teal-500;
 }
+
 .token.entity,
 .token.operator,
 .token.url {
   @apply text-yellow-500;
 }
+
 .token.bold,
 .token.important {
   font-weight: 700;
 }
+
 .token.italic {
   font-style: italic;
 }
+
 .token.entity {
   cursor: help;
 }
+
 .token.inserted {
   @apply text-green-500;
 }
+/* ---------------------Code Highlighter END-------------------- */
 
-/* NProgress */
+/* ---------------------NProgress Bar START-------------------- */
 #nprogress {
   pointer-events: none;
 }
@@ -281,6 +265,7 @@ pre[class*="language-"] {
 #nprogress .bar {
   @apply bg-accent dark:bg-accent_dark;
 }
+
 #nprogress .bar {
   position: fixed;
   z-index: 100;
@@ -289,3 +274,4 @@ pre[class*="language-"] {
   width: 100%;
   height: 2px;
 }
+/* ---------------------NProgress Bar End-------------------- */
