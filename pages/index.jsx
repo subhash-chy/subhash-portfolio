@@ -16,7 +16,7 @@ const Home = () => {
         you."
       />
 
-      <div className="py-20 max-w-custom ">
+      <div className="pt-20 pb-5 max-w-custom ">
         {/* Who am I section */}
         <div className="space-y-5">
           <h1>Who am I?</h1>
@@ -36,8 +36,9 @@ const Home = () => {
 
         {/* Featured blog post section */}
         <FeaturedPosts />
-
-        {/* Subscribe Newsletter */}
+      </div>
+      {/* Subscribe Newsletter */}
+      <div className="pb-20 sm:max-w-custom">
         <Newsletter />
       </div>
     </Layout>

@@ -6,7 +6,7 @@ function Button(props) {
   const { highEmphasis, onClick, loading, children } = props;
   return (
     <button
-      className={`flex items-center justify-center gap-3  group  ${
+      className={`flex items-center justify-center gap-3  group transition  ${
         highEmphasis
           ? "bg-accent/80 dark:bg-accent_dark/70 px-3 py-2 rounded-sm uppercase text-white text-xl dark:text-black hover:opacity-90"
           : "text-accent dark:text-accent_dark"
