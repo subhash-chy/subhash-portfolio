@@ -93,6 +93,37 @@
   li {
     @apply dark:text-[#9b9b9b];
   }
+
+  /* ---------------------Table START-------------------- */
+  table {
+    @apply w-full text-sm text-left dark:text-[#9b9b9b];
+  }
+
+  thead {
+    @apply text-xs uppercase bg-accent/10 dark:bg-accent_dark/10 dark:text-white;
+  }
+
+  tbody {
+    @apply bg-accent/5 dark:bg-accent_dark/5;
+  }
+
+  tbody tr {
+    @apply border-b border-accent/10 dark:border-accent_dark/10  hover:bg-accent/5 cursor-pointer transition;
+  }
+
+  th {
+    @apply px-6 py-3;
+  }
+
+  .th-scope-row {
+    @apply font-medium text-gray-900 dark:text-white whitespace-nowrap;
+  }
+
+  td {
+    @apply px-6 py-4;
+  }
+
+  /* ---------------------Table END-------------------- */
 }
 
 html {
