@@ -10,7 +10,7 @@ function Newsletter() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const { data } = useSWR("/api/subscribers", fetcher);
-  const subscriberCount = data?.stats?.member_count;
+  const subscriberCount = data?.total_items;
 
   const subscribe = async (e) => {
     e.preventDefault();
