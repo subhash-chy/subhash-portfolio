@@ -28,7 +28,7 @@ function Blog({ posts }) {
           {filteredBlogPosts
             .map((post, index) => (
               <Link key={index} href={`/blog/${post.node.slug}`} passHref>
-                <div className="hover:opacity-80 cursor-pointer transition-all hover:scale-[1.01]">
+                <div className="bg-secondary dark:bg-secondary_dark p-4 sm:p-8 rounded-md hover:opacity-80 cursor-pointer transition-all hover:scale-[1.01]">
                   <span className="text-xl font-bold">{post.node.title}</span>
                   <p className="mt-1">{post.node.metaDescription}</p>
                 </div>
