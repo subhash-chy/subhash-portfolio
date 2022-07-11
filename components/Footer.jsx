@@ -6,7 +6,7 @@ function Footer() {
     <div className="bg-secondary dark:bg-secondary_dark">
       <div className="max-w-custom py-20 flex flex-col md:flex-row justify-between gap-8">
         <div>
-          <h2 className="mb-5">SUBASH CHAUDHARY</h2>
+          <h2 className="mb-5 font-bold">SUBASH CHAUDHARY</h2>
           <div className="flex flex-col gap-2">
             <Link href="/" passHref>
               <a className="hover:text-accent dark:hover:text-accent_dark">
