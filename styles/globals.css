@@ -35,7 +35,7 @@
   }
 
   .max-w-custom {
-    @apply px-8 md:px-0 mx-auto md:max-w-[75%] 2xl:max-w-[60%];
+    @apply px-5 md:px-0 mx-auto md:max-w-[75%] 2xl:max-w-[60%];
   }
 
   .input-custom {
