@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Layout } from "../layouts";
 import dayjs from "dayjs";
-import { Header } from "../components";
+import { Button, Header } from "../components";
 import useAuth from "../hooks/useAuth";
 import { parse } from "cookie";
 import { getAuthToken } from "../lib/cookie";
@@ -20,10 +20,13 @@ export const getServerSideProps = async ({ req, res }) => {
 
 function AdminDashboard() {
   const [members, setMembers] = useState([]);
+  const [sendLoading, setSendLoading] = useState(false);
 
   const { user, loading } = useAuth();
 
   const isOwner = user?.email == process.env.NEXT_PUBLIC_EMAIL;
+
+  const messageRef = useRef(null);
 
   useEffect(() => {
     isOwner && findAllSubscribers();
@@ -35,6 +38,29 @@ function AdminDashboard() {
     });
     const members = await response.json();
     setMembers(members.members);
+  };
+
+  const sendMailToSubscribers = async (e) => {
+    e.preventDefault();
+    setSendLoading(true);
+    const allMails = members.map((member) => {
+      return member.email_address;
+    });
+
+    const allMailsStringified = allMails.join(", ");
+    const response = await fetch("/api/sendmail", {
+      body: JSON.stringify({
+        email: allMailsStringified,
+        message: messageRef.current.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    });
+    setSendLoading(false);
+    messageRef.current.value = "";
   };
 
   return (
@@ -55,11 +81,15 @@ function AdminDashboard() {
       <div className="py-20 max-w-custom">
         {isOwner ? (
           <div className="space-y-10">
-            <h1>All Members</h1>
-            <p className="text-xs">
-              <span className="dark:text-white">Total Members: </span>{" "}
-              {members?.length}
-            </p>
+            <div>
+              <h1 className="mb-3">All Members</h1>
+              <p className="text-sm">
+                <span className="dark:text-white">Total Members: </span>{" "}
+                <span className="text-accent dark:text-accent_dark">
+                  {members?.length}
+                </span>
+              </p>
+            </div>
             <div className="overflow-x-auto">
               <table>
                 <thead>
@@ -86,6 +116,27 @@ function AdminDashboard() {
                 </tbody>
               </table>
             </div>
+
+            {/*  */}
+            <form onSubmit={sendMailToSubscribers}>
+              <div className="space-y-2">
+                <label htmlFor="message">
+                  Want to send some message to your subscribers?
+                </label>
+                <textarea
+                  ref={messageRef}
+                  className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                  name="message"
+                  placeholder="Your Message..."
+                  cols="30"
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+              <Button highEmphasis loading={sendLoading}>
+                SEND TO ALL
+              </Button>
+            </form>
           </div>
         ) : (
           <p>It seems that you are not the website owner!</p>
