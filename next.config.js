@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -6,9 +8,13 @@ module.exports = {
       "media.graphassets.com",
       "media.graphcms.com",
       "images.pexels.com",
-      "github-readme-streak-stats.herokuapp.com",
-      "activity-graph.herokuapp.com",
     ],
     formats: ["image/avif", "image/webp"],
   },
-};
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === "development",
+  },
+});
