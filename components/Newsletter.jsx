@@ -40,13 +40,13 @@ function Newsletter() {
   };
 
   return (
-    <div className="mt-20 p-10 rounded-md bg-accent/10 dark:bg-accent_dark/5">
+    <div className="mt-20 py-10 px-5 md:px-10 rounded-md bg-accent/10 dark:bg-accent_dark/5">
       <div className="space-y-5">
-        <h1 className="font-bold">
+        <h2 className="font-bold">
           <span className="text-accent dark:text-accent_dark">Hooyah!</span> Get
           In Touch By Subscribing To The Newsletter{" "}
           <span className="text-accent dark:text-accent_dark">.</span>
-        </h1>
+        </h2>
         <p>
           Subscribe now to get latest blog post notification via email whenever
           I post a new blog.

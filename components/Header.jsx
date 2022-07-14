@@ -34,7 +34,7 @@ function Header(props) {
         <div className={`${image ? "col-span-9" : "col-span-12"} row-end-1`}>
           <h1
             className={`mb-3 md:leading-relaxed ${
-              router.asPath === "/" ? "md:text-5xl" : "md:text-4xl"
+              router.asPath === "/" ? "md:text-5xl" : "text-2xl md:text-4xl"
             }`}
           >
             {title}
