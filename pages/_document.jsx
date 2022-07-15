@@ -6,7 +6,8 @@ function Document(props) {
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/icon.png"></link>
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#171717" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
 
         <link
           rel="preload"
