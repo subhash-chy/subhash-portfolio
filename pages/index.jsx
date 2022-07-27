@@ -10,10 +10,7 @@ const Home = () => {
       <Header
         image
         title="Subash Chaudhary."
-        subtitle="A blogger, Front-End Developer, NextJS developer"
-        paragraphs=" Want to learn about Front-End development? You are on the right
-        place. Just go to blog section and find a tutorial that best suits
-        you."
+        subtitle="- Front-End Developer (ReactJS)"
       />
 
       <div className="pt-20 pb-5 max-w-custom ">
