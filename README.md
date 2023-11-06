@@ -11,3 +11,5 @@ Use this open source code, modify it and make it your own.
 - If you deploy your site other than vercel, use `yarn add sharp` for image optimization.
 
 [Old Site ➡ ](https://chaudharysubash.vercel.app/)
+
+This site is made only to learn
