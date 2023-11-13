@@ -19,6 +19,7 @@ function Header(props) {
     post_created_date,
     changeSearch,
   } = props;
+  
   return (
     <div className="bg-secondary dark:bg-secondary_dark">
       <div className="max-w-custom md:grid grid-cols-12 gap-5 pb-20">

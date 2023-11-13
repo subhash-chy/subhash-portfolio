@@ -12,7 +12,7 @@ function About() {
     >
       <Header
         title="About Me"
-        paragraphs="I am a developer. I write Front-End codes, prototype a Figma design, and I also write some programming related blogs."
+        paragraphs="A dedicated front-end developer and avid blogger. With a passion for crafting seamless user experiences through code, I specialize in front-end development. Explore my insightful blogs and innovative web projects as we journey through the digital landscape together."
         button={{
           title: "Read Blogs",
           onClick: () => {
