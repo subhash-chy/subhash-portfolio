@@ -18,7 +18,7 @@ function Blog({ posts }) {
     >
       <Header
         title="Blogs"
-        paragraphs="Here, you can find blogs on different topics related to programming. Mainly, blogs are about front-end development, UI designs, etc."
+        paragraphs="Explore a diverse array of programming-related topics through my collection of blogs. Delve into the intricacies of front-end development, discover insights on UI designs, and navigate the ever-evolving landscape of technology. Engage with thought-provoking content that transcends conventional boundaries, fostering a deeper understanding of the programming realm."
         searchbar={{ placeholder: "Search Blogs..." }}
         changeSearch={(search) => setSearchTerm(search)}
       />

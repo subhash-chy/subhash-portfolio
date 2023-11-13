@@ -18,7 +18,7 @@ const Home = () => {
         <div className="space-y-5">
           <h1>Front-End Developer & Blogger</h1>
           <p className="">
-          Unleash the power of design and code on my personal platform. I'm Subhash Chaudhary, a front-end developer sharing insights, trends, and my portfolio. Dive into the dynamic intersection of creativity and technology—where every line of code tells a story. Let's build the web of tomorrow together.
+          Unleash the power of design and code on my personal platform. I&apos;m Subhash Chaudhary, a front-end developer sharing insights, trends, and my portfolio. Dive into the dynamic intersection of creativity and technology—where every line of code tells a story. Let&apos;s build the web of tomorrow together.
           </p>
           <Button
             onClick={() => {
