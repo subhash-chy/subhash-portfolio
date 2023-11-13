@@ -13,3 +13,4 @@ Use this open source code, modify it and make it your own.
 [Old Site ➡ ](https://chaudharysubash.vercel.app/)
 
 Just keeping this intact
+This site is made only to learn

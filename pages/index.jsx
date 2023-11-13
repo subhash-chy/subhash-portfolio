@@ -9,18 +9,16 @@ const Home = () => {
     <Layout>
       <Header
         image
-        title="Subash Chaudhary."
+        title="Subhash Chaudhary."
         subtitle="- Front-End Developer (ReactJS)"
       />
 
       <div className="pt-20 pb-5 max-w-custom ">
         {/* Who am I section */}
         <div className="space-y-5">
-          <h1>Who am I?</h1>
+          <h1>Front-End Developer & Blogger</h1>
           <p className="">
-            I am a student, mainly a tech enthusiast. I like coding, write blogs
-            on various topic of programming. The main weapons are NextJS and
-            TailwindCSS.
+          Unleash the power of design and code on my personal platform. I&apos;m Subhash Chaudhary, a front-end developer sharing insights, trends, and my portfolio. Dive into the dynamic intersection of creativity and technology—where every line of code tells a story. Let&apos;s build the web of tomorrow together.
           </p>
           <Button
             onClick={() => {

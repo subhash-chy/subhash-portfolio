@@ -48,8 +48,7 @@ function Newsletter() {
           <span className="text-accent dark:text-accent_dark">.</span>
         </h2>
         <p>
-          Subscribe now to get latest blog post notification via email whenever
-          I post a new blog.
+          Stay informed by subscribing to receive timely email notifications for my latest blog posts. Be the first to access valuable content as soon as it&apos;s published.
         </p>
 
         {/* Newsletter form */}
