@@ -8,40 +8,54 @@ function Footer() {
         <div>
           <h2 className="mb-5 font-bold">SUBASH CHAUDHARY</h2>
           <div className="flex flex-col gap-2">
-            <Link href="/" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                Home
-              </a>
+            <Link
+              className="hover:text-accent dark:hover:text-accent_dark"
+              href="/"
+              passHref
+            >
+              Home
             </Link>
-            <Link href="/my-projects" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                My Projects
-              </a>
+            <Link
+              href="/my-projects"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              My Projects
             </Link>
-            <Link href="/about" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                About
-              </a>
+            <Link
+              href="/about"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              About
             </Link>
-            <Link href="/contact" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                Contact
-              </a>
+            <Link
+              href="/contact"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              Contact
             </Link>
-            <Link href="/sitemap.xml" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                Sitemap
-              </a>
+            <Link
+              href="/sitemap.xml"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              Sitemap
             </Link>
-            <Link href="/privacy-policy" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                Privacy Policy
-              </a>
+            <Link
+              href="/privacy-policy"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              Privacy Policy
             </Link>
-            <Link href="/blog" passHref>
-              <a className="hover:text-accent dark:hover:text-accent_dark">
-                Blogs
-              </a>
+            <Link
+              href="/blog"
+              passHref
+              className="hover:text-accent dark:hover:text-accent_dark"
+            >
+              Blogs
             </Link>
           </div>
         </div>
@@ -49,7 +63,7 @@ function Footer() {
           <h2 className="text-2xl md:text-xl font-bold mb-5">Social Links</h2>
           <div className="flex flex-col gap-2">
             <a
-              href="https://www.facebook.com/SubashTharu.0"
+              href="https://www.facebook.com/imsuubash"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -65,7 +79,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/subash.002/"
+              href="https://www.instagram.com/imsuubhash"
               target="_blank"
               rel="noopener noreferrer"
             >

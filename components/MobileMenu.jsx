@@ -53,48 +53,48 @@ export default function MobileMenu() {
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "150ms" }}
           >
-            <Link href="/">
-              <a className="flex w-auto pb-4">Home</a>
+            <Link href="/" className="flex w-auto pb-4">
+              Home
             </Link>
           </li>
           <li
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "175ms" }}
           >
-            <Link href="/blog">
-              <a className="flex w-auto pb-4">Blog</a>
+            <Link href="/blog" className="flex w-auto pb-4">
+              Blog
             </Link>
           </li>
           <li
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "200ms" }}
           >
-            <Link href="/about">
-              <a className="flex w-auto pb-4">About</a>
+            <Link href="/about" className="flex w-auto pb-4">
+              About
             </Link>
           </li>
           <li
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "250ms" }}
           >
-            <Link href="/contact">
-              <a className="flex w-auto pb-4">Contact</a>
+            <Link href="/contact" className="flex w-auto pb-4">
+              Contact
             </Link>
           </li>
           <li
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "275ms" }}
           >
-            <Link href="/privacy-policy">
-              <a className="flex w-auto pb-4">Privacy policy</a>
+            <Link href="/privacy-policy" className="flex w-auto pb-4">
+              Privacy policy
             </Link>
           </li>
           <li
             className="border-b text-sm font-semibold"
             style={{ transitionDelay: "300ms" }}
           >
-            <Link href="/my-projects">
-              <a className="flex w-auto pb-4">Projects</a>
+            <Link href="/my-projects" className="flex w-auto pb-4">
+              Projects
             </Link>
           </li>
         </ul>

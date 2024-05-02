@@ -1,6 +1,4 @@
-const withPWA = require("next-pwa");
-
-module.exports = withPWA({
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -11,10 +9,4 @@ module.exports = withPWA({
     ],
     formats: ["image/avif", "image/webp"],
   },
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-    disable: process.env.NODE_ENV === "development",
-  },
-});
+};

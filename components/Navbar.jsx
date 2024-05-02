@@ -11,17 +11,17 @@ const NavItem = ({ href, title, props }) => {
   const active = router.asPath === href;
 
   return (
-    <Link href={href} passHref>
-      <a
-        {...props}
-        className={` ${
-          active
-            ? "text-accent dark:text-accent_dark md:border-b-4 md:border-accent md:dark:border-accent_dark"
-            : "transition-all hover:text-accent dark:hover:text-accent_dark"
-        }  hidden md:inline-block border-b md:border-0 py-2 md:py-0 border-accent/10`}
-      >
-        {title}
-      </a>
+    <Link
+      href={href}
+      passHref
+      {...props}
+      className={` ${
+        active
+          ? "text-accent dark:text-accent_dark md:border-b-4 md:border-accent md:dark:border-accent_dark"
+          : "transition-all hover:text-accent dark:hover:text-accent_dark"
+      }  hidden md:inline-block border-b md:border-0 py-2 md:py-0 border-accent/10`}
+    >
+      {title}
     </Link>
   );
 };
