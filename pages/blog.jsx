@@ -23,7 +23,7 @@ function Blog({ posts }) {
         changeSearch={(search) => setSearchTerm(search)}
       />
       <div className="py-20 max-w-custom space-y-10 md:space-y-20">
-        <div className="space-y-8">
+        <div className="flex flex-col gap-2">
           <h1>All Blog Posts</h1>
           {filteredBlogPosts
             .map((post, index) => (
