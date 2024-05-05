@@ -23,6 +23,6 @@ export const my_projects_data = [
   {
     title: "Speech 2 Text",
     description:
-      "This app simply writes text by just speaking into the microphone. (Under development)",
+      "This app simply writes text by just speaking into the microphone.",
   },
 ];
