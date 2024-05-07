@@ -12,17 +12,17 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-      from: `${name ? name : "Subash"} <${process.env.GMAIL_SMTP_USER}>`,
+      from: `${name ? name : "Subhash"} <${email}>`,
       to: `${name ? process.env.GMAIL_SMTP_USER : email}`,
       subject: `${
         name
           ? "Message from ".concat(name)
-          : "Hey folks! A new message from subash newsletter!"
+          : "Hey folks! A new message from subhash newsletter!"
       }`,
       html: `<div>
-              <p>${name ? "From: ".concat(name) : ""}</p>
+              <p>${name ? "From: <b><i>".concat(email) : ""}  </i><b/></p>
               <h1>${
-                name ? "Hey Subash!" : "Hey Guys! A new message for you!"
+                name ? "Hey Subhash!" : "Hey Guys! A new message for you!"
               }</h1>
               <p>${
                 name ? name.concat(" has messaged you from your site!") : ""
