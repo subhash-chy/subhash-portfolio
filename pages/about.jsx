@@ -26,7 +26,6 @@ function About() {
           <div key={index} className="space-y-5">
             <h1>{data.title}</h1>
 
-            {/* Again mapping from arrays of sub data i.e. array of description */}
             {data.description.map((description, i) => (
               <p key={i}>{description}</p>
             ))}
