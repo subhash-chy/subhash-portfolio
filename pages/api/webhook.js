@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
     // Revalidate page when calling /webhook api
-    await res.unstable_revalidate("/blog");
+    await res.revalidate("/blog");
     return res.status(200).json({ revalidated: true });
   } catch (error) {
     return res.status(500).send("Error revalidating");
