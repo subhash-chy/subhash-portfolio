@@ -71,7 +71,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://github.com/Suubash"
+              href="https://github.com/subhash-chy"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -79,7 +79,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/imsuubhash"
+              href="https://www.instagram.com/_subhash_chy"
               target="_blank"
               rel="noopener noreferrer"
             >
