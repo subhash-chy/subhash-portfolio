@@ -1,6 +1,5 @@
 import { Button, Header } from "../components";
 import { Layout } from "../layouts";
-import { about_datas } from "../data";
 import { useRouter } from "next/router";
 
 function About() {
@@ -20,22 +19,50 @@ function About() {
           },
         }}
       />
-      <div className="py-20 max-w-custom space-y-10">
-        {/* Mapping all about page data */}
-        {about_datas.map((data, index) => (
-          <div key={index} className="space-y-5">
-            <h1>{data.title}</h1>
+      <div className="py-20 max-w-custom flex flex-col gap-12">
+        <div className="space-y-5">
+          <h1>More Than A Developer</h1>
+          <p>
+            I am a student, mainly a tech enthusiast. I like coding, write blogs
+            on various topic of programming. The main weapons are NextJS and
+            TailwindCSS.
+          </p>
+        </div>
 
-            {data.description.map((description, i) => (
-              <p key={i}>{description}</p>
-            ))}
-
-            {/* Show if there is any button */}
-            {data.button && (
-              <Button onClick={data.button.onClick}>{data.button.title}</Button>
-            )}
+        <div className="space-y-5">
+          <h1>How My Journey Started</h1>
+          <div className="space-y-3">
+            <p>
+              My journey into front-end development was a deliberate shift
+              driven by a pursuit of efficient creativity.
+            </p>
+            <p>
+              Originally drawn to 3D design with Blender, I found its resource
+              demands cumbersome. Switching to mobile app development using
+              Flutter provided relief, yet I craved more. Enter React and
+              NextJS, where I delved into Static Site Generation, Server Side
+              Rendering, and Incremental Static Regeneration for a refined
+              development experience.
+            </p>
+            <p>
+              If you're unfamiliar with SSG, SSR, and ISR, let's explore
+              together
+            </p>
           </div>
-        ))}
+        </div>
+        <div>
+          <Button
+            onClick={() => {
+              window.open(
+                "https://nextjs.org/docs/basic-features/data-fetching/overview",
+                "_blank",
+                "noopener noreferrer"
+              );
+            }}
+          >
+            Know More
+          </Button>
+        </div>
       </div>
     </Layout>
   );
