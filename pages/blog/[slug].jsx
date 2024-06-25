@@ -73,7 +73,7 @@ function BlogDetails(props) {
 
   return (
     <Layout
-      title={`${source.frontMatter.title} - Subash Chaudhary`}
+      title={`${source.frontMatter.title} - Subhash Chaudhary`}
       description={source.frontMatter.description}
       date={post.publishedAt}
       type="article"

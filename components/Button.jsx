@@ -6,7 +6,8 @@ function Button(props) {
   const { highEmphasis, onClick, loading, children } = props;
   return (
     <button
-      className={`flex items-center justify-center gap-3  group transition  ${
+      disabled={loading ? true : false}
+      className={`flex items-center justify-center gap-3  group transition disabled:bg-accent/20 disabled:dark:bg-accent_dark/20 disabled:hover:opacity-100 $  ${
         highEmphasis
           ? "bg-accent/80 dark:bg-accent_dark/70 px-3 py-2 rounded-sm uppercase text-white text-xl dark:text-black hover:opacity-90"
           : "text-accent dark:text-accent_dark"
