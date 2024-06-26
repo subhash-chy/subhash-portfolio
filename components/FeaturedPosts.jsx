@@ -3,6 +3,7 @@ import { Button } from ".";
 
 import { useRouter } from "next/router";
 import { getPosts } from "../data";
+import { shuffle } from "../utils/shuffle";
 
 function FeaturedPosts() {
   const router = useRouter();
@@ -12,11 +13,7 @@ function FeaturedPosts() {
     getPosts().then((result) => setPosts(result));
   }, []);
 
-  // Shuffling the post to get random post order
-  const randomizedPosts = posts
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((x, y) => x.sort - y.sort)
-    .map(({ value }) => value);
+  const randomizedPosts = shuffle(posts);
 
   return (
     <div className="mt-20 space-y-5">
@@ -59,7 +56,7 @@ function FeaturedPosts() {
           );
         })}
       </div>
-      {/* Change title button according to page opened */}
+
       <Button onClick={() => router.push("/blog")}>Read All Blogs</Button>
     </div>
   );
