@@ -160,8 +160,12 @@ article *:hover > .heading-hook {
   @apply px-5 py-3 font-mono text-sm font-bold text-tertiary_dark dark:text-tertiary  bg-tertiary  rounded-t-md  dark:bg-tertiary_dark;
 }
 
+.code-line {
+  @apply md:text-xl;
+}
+
 .highlight-line {
-  @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
+  @apply block px-4 -mx-4 bg-secondary_dark/10 dark:bg-secondary/10 dark:text-white;
 }
 
 code[class*="language-"],
