@@ -33,7 +33,7 @@ function Navbar() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="bg-secondary dark:bg-secondary_dark">
+    <div className="bg-tertiary dark:bg-tertiary_dark">
       <nav className=" py-8 md:py-20 max-w-custom">
         <div className="flex items-center justify-between">
           <div className="text-lg md:flex gap-5 font-medium">

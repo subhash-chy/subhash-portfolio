@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedPosts } from ".";
+import { TiInfo, TiWarning, TiBeaker } from "react-icons/ti";
 
 // Creating a custom Link comp
 const CustomLink = (props) => {
@@ -44,21 +45,30 @@ const CustomImage = (props) => (
 );
 
 // INFO Comp
-const CustomInfo = ({ title, danger, warning }) => {
+const CustomInfo = ({ title, danger, warning, children }) => {
   return (
     <div
-      className={`${
-        danger ? "bg-red-500" : warning ? "bg-yellow-400/30" : "bg-green-400/30"
-      } p-10 rounded-md`}
+      className={`bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 px-10 pt-4 sm:pt-10 pb-10 my-6 rounded-md flex gap-2 justify-center items-center sm:items-start flex-col sm:flex-row`}
     >
-      {danger ? (
-        <span className="font-bold">Warning! </span>
-      ) : warning ? (
-        <span className="font-bold">Note! </span>
-      ) : (
-        <span className="font-bold">Info! </span>
-      )}
-      {title}
+      <div>
+        {danger ? (
+          <span className="font-bold">
+            <TiWarning className="text-red-500 h-16 w-16 sm:h-10 sm:w-10" />{" "}
+          </span>
+        ) : warning ? (
+          <span className="font-bold">
+            <TiBeaker className="text-yellow-500 h-16 w-16 sm:h-10 sm:w-10" />{" "}
+          </span>
+        ) : (
+          <span className="font-bold">
+            <TiInfo className="text-green-500 h-16 w-16 sm:h-10 sm:w-10" />
+          </span>
+        )}
+      </div>
+      <div>
+        <h3 className="text-xl sm:text-2xl">{title}</h3>
+        <div className="text-md flex flex-col gap-4">{children}</div>
+      </div>
     </div>
   );
 };
@@ -74,7 +84,7 @@ const MDXComponents = {
   ul: (props) => <ul className="list-disc list-inside space-y-5" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="pl-5 border-l-4 border-accent dark:border-accent_dark"
+      className="my-2 pl-5 border border-l-8 bg-secondary dark:bg-secondary_dark border-neutral-200 dark:border-neutral-700"
       {...props}
     />
   ),

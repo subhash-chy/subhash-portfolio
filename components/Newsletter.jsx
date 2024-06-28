@@ -40,7 +40,7 @@ function Newsletter() {
   };
 
   return (
-    <div className="mt-20 py-10 px-5 md:px-10 rounded-md bg-accent/10 dark:bg-accent_dark/5">
+    <div className="mt-20 py-6 md:py-8 px-5 md:px-10 rounded-md bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700">
       <div className="space-y-5">
         <h2 className="font-bold md:text-3xl">
           <span className="text-accent dark:text-accent_dark">Stay</span> ahead
@@ -58,7 +58,7 @@ function Newsletter() {
           <div className="flex flex-col md:flex-row gap-5 md:gap-0">
             <input
               ref={inputRef}
-              className="input-custom bg-white/70 focus:bg-white"
+              className="input-custom"
               type="email"
               name="email"
               placeholder="john@gmail.com"
@@ -69,7 +69,7 @@ function Newsletter() {
             </Button>
           </div>
           <div className="flex items-center justify-between">
-            <p className="text-accent dark:text-accent_dark font-semibold">
+            <p className="opacity-50">
               {subscriberCount > 0
                 ? `${subscriberCount} Subscribers`
                 : `No Subscriber`}

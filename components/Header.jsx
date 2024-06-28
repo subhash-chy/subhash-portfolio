@@ -21,7 +21,7 @@ function Header(props) {
   } = props;
 
   return (
-    <div className="bg-secondary dark:bg-secondary_dark">
+    <div className="bg-tertiary dark:bg-tertiary_dark">
       <div className="max-w-custom md:grid grid-cols-12 gap-5 pb-20">
         {image && (
           <div className="h-32 w-32 rounded-full col-span-3 justify-self-end mb-8 md:mb-0 relative">
@@ -71,7 +71,7 @@ function Header(props) {
               </Button>
             )}
             {searchbar && (
-              <div className="bg-white rounded-md dark:bg-[#222222] flex items-center justify-between">
+              <div className="bg-secondary rounded-md dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
                 <input
                   className="bg-transparent input-custom"
                   type="search"
@@ -79,7 +79,7 @@ function Header(props) {
                   placeholder={searchbar.placeholder}
                   onChange={(e) => changeSearch(e.target.value)}
                 />
-                <FiSearch className="icon mx-3 text-[#a9a9a9]" />
+                <FiSearch className="icon mx-3 text-secondary_dark dark:text-secondary" />
               </div>
             )}
           </div>

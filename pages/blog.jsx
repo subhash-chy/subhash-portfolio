@@ -23,19 +23,25 @@ function Blog({ posts }) {
         changeSearch={(search) => setSearchTerm(search)}
       />
       <div className="py-20 max-w-custom space-y-10 md:space-y-20">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-10">
           <h1>All Blog Posts</h1>
-          {filteredBlogPosts
-            .map((post, index) => (
-              <Link key={index} href={`/blog/${post.node.slug}`} passHref>
-                <div className="bg-secondary dark:bg-secondary_dark p-4 sm:p-8 rounded-md hover:opacity-80 cursor-pointer transition-all hover:scale-[1.01]">
-                  <span className="text-xl font-bold">{post.node.title}</span>
-                  <p className="mt-1">{post.node.metaDescription}</p>
-                </div>
-              </Link>
-            ))
-            .reverse()}
-          {!filteredBlogPosts.length && <p>No posts found.</p>}
+          <div className="flex flex-col gap-2">
+            {filteredBlogPosts
+              .map((post, index) => (
+                <Link key={index} href={`/blog/${post.node.slug}`} passHref>
+                  <div className="bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 p-4 sm:p-8 rounded-md hover:opacity-80 cursor-pointer transition-all ">
+                    <span className="md:text-xl font-bold">
+                      {post.node.title}
+                    </span>
+                    <p className="mt-2 opacity-70">
+                      {post.node.metaDescription}
+                    </p>
+                  </div>
+                </Link>
+              ))
+              .reverse()}
+            {!filteredBlogPosts.length && <p>No posts found.</p>}
+          </div>
         </div>
       </div>
     </Layout>
