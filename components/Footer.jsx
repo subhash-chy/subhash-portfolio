@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-secondary dark:bg-secondary_dark">
+    <div className="bg-tertiary dark:bg-tertiary_dark">
       <div className="max-w-custom py-20 flex flex-col md:flex-row justify-between gap-8">
         <div>
           <h2 className="mb-5 font-bold">SUBHASH CHAUDHARY</h2>
@@ -42,13 +42,6 @@ function Footer() {
               className="hover:text-accent dark:hover:text-accent_dark"
             >
               Sitemap
-            </Link>
-            <Link
-              href="/privacy-policy"
-              passHref
-              className="hover:text-accent dark:hover:text-accent_dark"
-            >
-              Privacy Policy
             </Link>
             <Link
               href="/blog"

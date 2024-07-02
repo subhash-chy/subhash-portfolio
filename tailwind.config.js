@@ -16,6 +16,9 @@ module.exports = {
         tertiary: colors.tertiary,
         tertiary_dark: colors.tertiary_dark,
       },
+      boxShadow: {
+        "glow-accent": `0 0 60px ${colors.accent_dark}`,
+      },
       // #ff7900
     },
   },
