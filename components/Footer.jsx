@@ -44,13 +44,6 @@ function Footer() {
               Sitemap
             </Link>
             <Link
-              href="/privacy-policy"
-              passHref
-              className="hover:text-accent dark:hover:text-accent_dark"
-            >
-              Privacy Policy
-            </Link>
-            <Link
               href="/blog"
               passHref
               className="hover:text-accent dark:hover:text-accent_dark"
