@@ -45,55 +45,55 @@ export default function MobileMenu() {
         <ul
           className={`
             ${styles.menu}
-            flex flex-col absolute bg-secondary dark:bg-secondary_dark max-w-custom
+            glass glass-strong flex flex-col fixed gap-3
             ${isMenuRendered && styles.menuRendered}
           `}
         >
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "150ms" }}
           >
-            <Link href="/" className="flex w-auto pb-4">
+            <Link href="/" className="flex w-auto px-5 py-4">
               Home
             </Link>
           </li>
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "175ms" }}
           >
-            <Link href="/blog" className="flex w-auto pb-4">
+            <Link href="/blog" className="flex w-auto px-5 py-4">
               Blog
             </Link>
           </li>
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "200ms" }}
           >
-            <Link href="/about" className="flex w-auto pb-4">
+            <Link href="/about" className="flex w-auto px-5 py-4">
               About
             </Link>
           </li>
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "250ms" }}
           >
-            <Link href="/contact" className="flex w-auto pb-4">
+            <Link href="/contact" className="flex w-auto px-5 py-4">
               Contact
             </Link>
           </li>
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "275ms" }}
           >
-            <Link href="/privacy-policy" className="flex w-auto pb-4">
+            <Link href="/privacy-policy" className="flex w-auto px-5 py-4">
               Privacy policy
             </Link>
           </li>
           <li
-            className="border-b text-sm font-semibold"
+            className="glass glass-edge glass-hover rounded-2xl text-sm font-semibold"
             style={{ transitionDelay: "300ms" }}
           >
-            <Link href="/my-projects" className="flex w-auto pb-4">
+            <Link href="/my-projects" className="flex w-auto px-5 py-4">
               Projects
             </Link>
           </li>

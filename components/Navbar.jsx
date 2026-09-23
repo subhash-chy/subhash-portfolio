@@ -20,9 +20,9 @@ const NavItem = ({ href, title, props }) => {
       {...props}
       className={` ${
         active
-          ? "text-accent dark:text-accent_dark md:border-b-4 md:border-accent md:dark:border-accent_dark"
-          : "transition-all hover:text-accent dark:hover:text-accent_dark"
-      }  hidden md:inline-block border-b md:border-0 py-2 md:py-0 border-accent/10`}
+          ? "text-accent dark:text-accent_dark bg-accent/10 dark:bg-accent_dark/15"
+          : "transition-all hover:text-accent dark:hover:text-accent_dark hover:bg-white/50 dark:hover:bg-white/10"
+      }  hidden md:inline-block rounded-full px-4 py-2`}
     >
       {title}
     </Link>
@@ -38,10 +38,10 @@ function Navbar() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="bg-tertiary dark:bg-tertiary_dark">
-      <nav className=" py-8 md:py-20 max-w-custom">
+    <div className="sticky top-0 z-50 max-w-custom pt-3 md:pt-5">
+      <nav className="glass glass-edge sheen rounded-[24px] px-4 py-2.5 md:rounded-full md:px-5 md:py-2">
         <div className="flex items-center justify-between">
-          <div className="text-lg md:flex gap-5 font-medium">
+          <div className="text-lg flex items-center gap-1 md:gap-1 font-medium">
             <div className="md:hidden">
               <MobileMenu />
             </div>
@@ -53,11 +53,13 @@ function Navbar() {
           </div>
 
           {/* Dark mode toggle */}
-          <span
+          <button
+            type="button"
+            aria-label="Toggle theme"
             onClick={() => {
               setTheme(theme === "light" ? "dark" : "light");
             }}
-            className="cursor-pointer"
+            className="glass glass-edge cursor-pointer rounded-full p-2.5 text-accent dark:text-accent_dark hover:scale-105 transition"
           >
             {mounted &&
               (theme === "light" ? (
@@ -65,7 +67,7 @@ function Navbar() {
               ) : (
                 <RiSunFill className="icon" />
               ))}
-          </span>
+          </button>
         </div>
       </nav>
     </div>

@@ -10,7 +10,7 @@ const ChipIcon = (props) => {
   } = props;
 
   return (
-    <div className="flex items-center justify-between px-3 py-4 bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 rounded-md">
+    <div className="flex items-center justify-between px-4 py-5 glass glass-edge glass-hover rounded-2xl">
       <a href={link} target="_blank" rel="noopener noreferrer">
         <svg width={width} height={height} role="img" aria-label={label}>
           <use width={width} height={height} href={iconPath} />

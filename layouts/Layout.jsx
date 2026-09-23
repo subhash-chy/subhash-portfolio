@@ -43,9 +43,11 @@ function Layout(props) {
           <meta property="article:published_time" content={metaData.date} />
         )}
       </Head>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
     </>
   );
 }

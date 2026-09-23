@@ -49,7 +49,7 @@ function Contact() {
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                className="input-custom"
                 type="text"
                 name="name"
                 required
@@ -60,7 +60,7 @@ function Contact() {
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                className="input-custom"
                 type="email"
                 name="email"
                 placeholder="steve@gmail.com"
@@ -72,7 +72,7 @@ function Contact() {
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                className="input-custom"
                 name="message"
                 cols="30"
                 rows="5"

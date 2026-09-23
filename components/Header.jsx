@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from ".";
-import { FiSearch } from "react-icons/fi";
 import Image from "next/image";
+import { FiSearch } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { Button } from ".";
 
 function Header(props) {
   const router = useRouter();
@@ -21,10 +21,10 @@ function Header(props) {
   } = props;
 
   return (
-    <div className="bg-tertiary dark:bg-tertiary_dark">
-      <div className="max-w-custom md:grid grid-cols-12 gap-5 pb-20">
+    <div className="glass-band border-b border-white/50 dark:border-white/10">
+      <div className="max-w-custom md:grid grid-cols-12 gap-5 pt-14 pb-20 md:pt-20">
         {image && (
-          <div className="h-32 w-32 rounded-full col-span-3 justify-self-end mb-8 md:mb-0 relative">
+          <div className="h-32 w-32 rounded-full col-span-3 justify-self-end mb-8 md:mb-0 relative glass-ring">
             <Image
               src={"/profile-pic.png"}
               alt="Subash Chaudhary - A blogger and Front-End developer"
@@ -48,7 +48,7 @@ function Header(props) {
             {author && author_photo && (
               <div className="flex flex-col md:flex-row justify-between gap-5">
                 <div className="flex items-center gap-5">
-                  <div className="w-10 h-10 relative">
+                  <div className="w-10 h-10 relative glass-ring">
                     <Image
                       src={author_photo}
                       alt={author}
@@ -72,9 +72,9 @@ function Header(props) {
               </Button>
             )}
             {searchbar && (
-              <div className="bg-secondary rounded-md dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
+              <div className="glass glass-edge rounded-full flex items-center justify-between">
                 <input
-                  className="bg-transparent input-custom"
+                  className="input-ghost"
                   type="search"
                   name="search"
                   placeholder={searchbar.placeholder}

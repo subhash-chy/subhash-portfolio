@@ -73,7 +73,7 @@ function Admin() {
               <label htmlFor="email">Admin Email</label>
               <input
                 ref={emailRef}
-                className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                className="input-custom"
                 type="email"
                 name="email"
                 placeholder="steve@gmail.com"

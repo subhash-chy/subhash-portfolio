@@ -40,7 +40,7 @@ function Newsletter() {
   };
 
   return (
-    <div className="mt-20 py-6 md:py-8 px-5 md:px-10 rounded-md bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700">
+    <div className="mt-20 py-8 px-6 md:px-12 rounded-[28px] glass glass-edge sheen">
       <div className="space-y-5">
         <h2 className="font-bold md:text-3xl">
           <span className="text-accent dark:text-accent_dark">Stay</span> ahead

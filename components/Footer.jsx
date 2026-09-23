@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-tertiary dark:bg-tertiary_dark">
+    <div className="glass-band border-t border-white/50 dark:border-white/10">
       <div className="max-w-custom py-20 flex flex-col md:flex-row justify-between gap-8">
         <div>
           <h2 className="mb-5 font-bold">SUBHASH CHAUDHARY</h2>

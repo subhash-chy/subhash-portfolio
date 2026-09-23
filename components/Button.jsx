@@ -7,10 +7,10 @@ function Button(props) {
   return (
     <button
       disabled={loading ? true : false}
-      className={`flex items-center justify-center gap-3  group transition disabled:bg-accent/20 disabled:dark:bg-accent_dark/20 disabled:hover:opacity-100 $  ${
+      className={`group relative inline-flex items-center justify-center gap-3 ${
         highEmphasis
-          ? "bg-accent/80 dark:bg-accent_dark/70 px-3 py-2 rounded-sm uppercase text-white text-xl dark:text-black hover:opacity-90"
-          : "text-accent dark:text-accent_dark"
+          ? "btn-glass sheen rounded-full px-6 py-3 uppercase tracking-wider text-white text-xl dark:text-black"
+          : "btn-ghost rounded-full px-4 py-2 text-accent dark:text-accent_dark"
       }`}
       onClick={onClick}
     >

@@ -23,10 +23,10 @@ const Roadmap = (props) => {
           >
             <div
               id={`dot${index + 1}`}
-              className="shadow-glow-accent bg-accent dark:bg-accent_dark  rounded-full w-8 h-8  min-w-[2rem]"
+              className="shadow-glow-accent bg-accent dark:bg-accent_dark ring-4 ring-accent/15 dark:ring-accent_dark/15 rounded-full w-8 h-8  min-w-[2rem]"
             ></div>
             <div
-              className={`bg-secondary dark:bg-secondary_dark px-8 py-10 rounded-md border border-neutral-200 dark:border-neutral-700 flex items-center justify-start gap-5 ml-8  md:mr-8 flex-wrap ${
+              className={`glass glass-edge glass-hover px-8 py-10 rounded-[24px] flex items-center justify-start gap-5 ml-8  md:mr-8 flex-wrap ${
                 index % 2 ? "md:mr-0" : "md:flex-row-reverse md:ml-0"
               }`}
             >

@@ -90,7 +90,7 @@ function AdminDashboard() {
                 </span>
               </p>
             </div>
-            <div className="overflow-x-auto">
+            <div className="glass glass-edge rounded-[24px] overflow-x-auto">
               <table>
                 <thead>
                   <tr>
@@ -125,7 +125,7 @@ function AdminDashboard() {
                 </label>
                 <textarea
                   ref={messageRef}
-                  className="input-custom bg-[#f3f3f3] focus:bg-[#eeeeee]"
+                  className="input-custom"
                   name="message"
                   placeholder="Your Message..."
                   cols="30"

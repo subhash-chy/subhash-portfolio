@@ -34,7 +34,7 @@ const CustomLink = (props) => {
 const CustomImage = (props) => (
   <Image
     {...props}
-    className="rounded-md w-full h-auto object-cover"
+    className="rounded-2xl w-full h-auto object-cover ring-1 ring-white/50 dark:ring-white/10 shadow-[0_10px_36px_rgba(20,20,40,0.14)]"
     width={1920}
     height={1080}
     alt={props.alt}
@@ -46,7 +46,7 @@ const CustomImage = (props) => (
 const CustomInfo = ({ title, danger, warning, children }) => {
   return (
     <div
-      className={`bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 px-10 pt-4 sm:pt-10 pb-10 my-6 rounded-md flex gap-2 justify-center items-center sm:items-start flex-col sm:flex-row`}
+      className={`glass glass-edge px-10 pt-4 sm:pt-10 pb-10 my-6 rounded-[24px] flex gap-2 justify-center items-center sm:items-start flex-col sm:flex-row`}
     >
       <div>
         {danger ? (
@@ -82,7 +82,7 @@ const MDXComponents = {
   ul: (props) => <ul className="list-disc list-inside space-y-5" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="my-2 pl-5 border border-l-8 bg-secondary dark:bg-secondary_dark border-neutral-200 dark:border-neutral-700"
+      className="my-6 pl-6 pr-4 py-2 glass glass-subtle glass-edge border-l-4 border-l-accent dark:border-l-accent_dark rounded-r-2xl rounded-l-lg"
       {...props}
     />
   ),

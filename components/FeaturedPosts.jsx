@@ -44,7 +44,7 @@ function FeaturedPosts() {
           return (
             <div
               key={index + 1}
-              className="py-5 border-b transform transition-all hover:scale-[1.01] cursor-pointer"
+              className="py-5 px-6 mb-4 glass glass-subtle glass-edge glass-hover sheen rounded-2xl transform transition-all cursor-pointer"
               onClick={() => {
                 router.push(`/blog/${post.node.slug}`);
               }}
