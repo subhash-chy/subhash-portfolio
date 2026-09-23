@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import { IoMdMoon } from "react-icons/io";
 import { RiSunFill } from "react-icons/ri";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { MobileMenu } from ".";
+
+// subscribe to nothing; used only to detect client-side rendering
+const emptySubscribe = () => () => {};
 
 const NavItem = ({ href, title, props }) => {
   const router = useRouter();
@@ -27,10 +30,12 @@ const NavItem = ({ href, title, props }) => {
 };
 
 function Navbar() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => setMounted(true), []);
 
   return (
     <div className="bg-tertiary dark:bg-tertiary_dark">

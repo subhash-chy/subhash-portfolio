@@ -1,12 +1,13 @@
 module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
+  // Required for next-mdx-remote when bundling with Turbopack (default since Next 16)
+  transpilePackages: ["next-mdx-remote"],
   images: {
-    domains: [
-      "media.graphassets.com",
-      "media.graphcms.com",
-      "images.pexels.com",
-      "example.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "media.graphassets.com" },
+      { protocol: "https", hostname: "media.graphcms.com" },
+      { protocol: "https", hostname: "images.pexels.com" },
+      { protocol: "https", hostname: "example.com" },
     ],
     formats: ["image/avif", "image/webp"],
   },

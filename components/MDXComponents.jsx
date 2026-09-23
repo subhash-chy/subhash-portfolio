@@ -34,12 +34,10 @@ const CustomLink = (props) => {
 const CustomImage = (props) => (
   <Image
     {...props}
-    className="rounded-md"
+    className="rounded-md w-full h-auto object-cover"
     width={1920}
     height={1080}
     alt={props.alt}
-    layout="responsive"
-    objectFit="cover"
     quality={70}
   />
 );

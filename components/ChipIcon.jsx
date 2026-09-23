@@ -1,7 +1,13 @@
 import React from "react";
 
 const ChipIcon = (props) => {
-  const { link, iconPath, width, height, label } = props;
+  const {
+    link,
+    iconPath,
+    width = 30,
+    height = 30,
+    label = "icon",
+  } = props;
 
   return (
     <div className="flex items-center justify-between px-3 py-4 bg-secondary dark:bg-secondary_dark border border-neutral-200 dark:border-neutral-700 rounded-md">
@@ -12,20 +18,6 @@ const ChipIcon = (props) => {
       </a>
     </div>
   );
-};
-
-// ChipIcon.propTypes = {
-//   link: PropTypes.string.isRequired,
-//   width: PropTypes.number,
-//   height: PropTypes.number,
-//   label: PropTypes.string,
-//   iconPath: PropTypes.string.isRequired,
-// };
-
-ChipIcon.defaultProps = {
-  width: 30,
-  height: 30,
-  label: "icon",
 };
 
 export default ChipIcon;

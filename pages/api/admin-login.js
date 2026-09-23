@@ -8,9 +8,8 @@ export default async function handler(req, res) {
 
     // exchange the did from Magic for some user data
     const did = req.headers.authorization.split("Bearer").pop().trim();
-    const user = await new Magic(
-      process.env.MAGIC_SECRET_KEY
-    ).users.getMetadataByToken(did);
+    const magic = await Magic.init(process.env.MAGIC_SECRET_KEY);
+    const user = await magic.users.getMetadataByToken(did);
 
     // Author a couple of cookies to persist a user's session
     const token = await Iron.seal(

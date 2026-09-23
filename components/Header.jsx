@@ -28,8 +28,9 @@ function Header(props) {
             <Image
               src={"/profile-pic.png"}
               alt="Subash Chaudhary - A blogger and Front-End developer"
-              width={300}
-              height={300}
+              fill
+              sizes="128px"
+              className="rounded-full object-cover"
             />
           </div>
         )}
@@ -51,9 +52,9 @@ function Header(props) {
                     <Image
                       src={author_photo}
                       alt={author}
-                      objectFit="cover"
-                      layout="fill"
-                      className="rounded-full"
+                      fill
+                      sizes="40px"
+                      className="rounded-full object-cover"
                     />
                   </div>
                   <p className="text-xs md:text-base">{author}</p>

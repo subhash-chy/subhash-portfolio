@@ -26,25 +26,37 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const datas = (await getPostDetails(params.slug)) || [];
   const source = datas?.markdown;
+
+  if (!source) {
+    return { notFound: true };
+  }
+
   const { content, data } = matter(source);
-  const mdx = await serialize(content, {
-    scope: data,
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeCodeTitles,
-        rehypePrism,
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            properties: {
-              className: ["heading-hook"],
+  const mdx = await serialize(
+    content,
+    {
+      scope: data,
+      // v6 blocks all JS expressions by default; keep v5-compatible MDX
+      // rendering while still sandboxing dangerous calls (eval, require, ...)
+      blockJS: false,
+      blockDangerousJS: true,
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeCodeTitles,
+          rehypePrism,
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              properties: {
+                className: ["heading-hook"],
+              },
             },
-          },
+          ],
         ],
-      ],
-    },
-  });
+      },
+    }
+  );
 
   return {
     props: {

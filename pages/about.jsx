@@ -76,8 +76,8 @@ function About() {
               development experience.
             </p>
             <p>
-              If you're unfamiliar with SSG, SSR, and ISR, let's explore
-              together
+              If you&apos;re unfamiliar with SSG, SSR, and ISR, let&apos;s
+              explore together
             </p>
           </div>
         </div>

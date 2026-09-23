@@ -1,3 +1,18 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent: #d64000;
+  --color-accent_dark: #ff7900;
+  --color-secondary: #fafafa;
+  --color-secondary_dark: #262626;
+  --color-tertiary: #e6e6e6;
+  --color-tertiary_dark: #1f1f1f;
+
+  --shadow-glow-accent: 0 0 60px #ff7900;
+}
+
 @font-face {
   font-family: "Poppins";
   font-style: normal;
@@ -25,11 +40,16 @@
   src: url(/fonts/Poppins-Italic.woff2) format("woff2");
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
+  /* Keep Tailwind v3's default border color (v4 defaults to currentColor) */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200);
+  }
+
   .icon {
     @apply w-6 h-6;
   }

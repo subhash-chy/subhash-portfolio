@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 import { Magic } from "magic-sdk";
 // import Head from "next/head";
 import { getAuthToken } from "../lib/cookie";
-import { parse } from "cookie";
+import { parseCookie } from "cookie";
 
 export const getServerSideProps = async ({ req, res }) => {
-  const cookies = parse(req.headers.cookie || "");
+  const cookies = parseCookie(req.headers.cookie || "");
   const token = getAuthToken(cookies);
 
   if (token) {

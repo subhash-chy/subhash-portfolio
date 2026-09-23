@@ -1,3 +1,6 @@
+/* Tailwind v4: reference the main stylesheet so @apply can resolve theme tokens */
+@reference "./globals.css";
+
 .burger {
   transition: opacity 300ms ease;
   width: 25px;

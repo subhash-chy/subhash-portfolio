@@ -18,8 +18,13 @@ export const getPosts = async () => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query);
-  return result.postsConnection.edges;
+  try {
+    const result = await request(graphqlAPI, query);
+    return result.postsConnection.edges;
+  } catch (error) {
+    console.error("Failed to fetch posts:", error?.message || error);
+    return [];
+  }
 };
 
 export const getPostDetails = async (slug) => {
@@ -53,6 +58,11 @@ export const getPostDetails = async (slug) => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query, { slug });
-  return result.post;
+  try {
+    const result = await request(graphqlAPI, query, { slug });
+    return result.post;
+  } catch (error) {
+    console.error("Failed to fetch post details:", error?.message || error);
+    return null;
+  }
 };

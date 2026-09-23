@@ -3,11 +3,11 @@ import { Layout } from "../layouts";
 import dayjs from "dayjs";
 import { Button, Header } from "../components";
 import useAuth from "../hooks/useAuth";
-import { parse } from "cookie";
+import { parseCookie } from "cookie";
 import { getAuthToken } from "../lib/cookie";
 
 export const getServerSideProps = async ({ req, res }) => {
-  const cookies = parse(req.headers.cookie || "");
+  const cookies = parseCookie(req.headers.cookie || "");
   const token = getAuthToken(cookies);
 
   if (!token) {
@@ -29,16 +29,16 @@ function AdminDashboard() {
   const messageRef = useRef(null);
 
   useEffect(() => {
+    const findAllSubscribers = async () => {
+      const response = await fetch("/api/subscribers", {
+        method: "GET",
+      });
+      const members = await response.json();
+      setMembers(members.members);
+    };
+
     isOwner && findAllSubscribers();
   }, [isOwner]);
-
-  const findAllSubscribers = async () => {
-    const response = await fetch("/api/subscribers", {
-      method: "GET",
-    });
-    const members = await response.json();
-    setMembers(members.members);
-  };
 
   const sendMailToSubscribers = async (e) => {
     e.preventDefault();

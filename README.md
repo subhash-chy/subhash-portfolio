@@ -4,6 +4,7 @@ Use this open source code, modify it and make it your own.
 
 ### To run this site
 
+- Make sure you have Node.js 20.9 (or newer) installed.
 - First, install all the dependencies, `yarn` or `npm i`.
 - Create **.env.local** file and add all the values of missing files from **.env.example**.
 - To run in dev mode run `yarn dev`.
