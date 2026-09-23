@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-accent: #d64000;
+  --color-accent: #b83a00;
   --color-accent_dark: #ff7900;
   --color-secondary: #fafafa;
   --color-secondary_dark: #262626;
@@ -239,13 +239,13 @@ body::after {
 .btn-glass {
   background: linear-gradient(
     135deg,
-    rgba(214, 64, 0, 0.82),
-    rgba(255, 121, 0, 0.62)
+    rgba(184, 58, 0, 0.95),
+    rgba(232, 100, 0, 0.92)
   );
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 24px rgba(214, 64, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.5),
+  box-shadow: 0 8px 24px rgba(184, 58, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.5),
     inset 0 -2px 6px rgba(120, 30, 0, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
@@ -253,8 +253,8 @@ body::after {
 .dark .btn-glass {
   background: linear-gradient(
     135deg,
-    rgba(255, 121, 0, 0.72),
-    rgba(255, 160, 60, 0.5)
+    rgba(255, 121, 0, 0.92),
+    rgba(255, 160, 60, 0.8)
   );
   box-shadow: 0 8px 24px rgba(255, 121, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4),
     inset 0 -2px 6px rgba(120, 50, 0, 0.35);
@@ -262,7 +262,7 @@ body::after {
 
 .btn-glass:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(214, 64, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.55),
+  box-shadow: 0 14px 34px rgba(184, 58, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.55),
     inset 0 -2px 6px rgba(120, 30, 0, 0.25);
 }
 
@@ -311,15 +311,15 @@ body::after {
 .glass-field:focus,
 .input-custom:focus {
   outline: none;
-  border-color: rgba(214, 64, 0, 0.55);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 0 0 3px rgba(214, 64, 0, 0.18),
-    0 4px 16px rgba(214, 64, 0, 0.12);
+  border-color: #b83a00;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 0 0 3px rgba(184, 58, 0, 0.25),
+    0 4px 16px rgba(184, 58, 0, 0.12);
 }
 
 .dark .glass-field:focus,
 .dark .input-custom:focus {
-  border-color: rgba(255, 121, 0, 0.55);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.06), 0 0 0 3px rgba(255, 121, 0, 0.16),
+  border-color: #ff7900;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.06), 0 0 0 3px rgba(255, 121, 0, 0.22),
     0 4px 18px rgba(255, 121, 0, 0.1);
 }
 
@@ -470,6 +470,8 @@ body::after {
 html {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+  /* keep anchored headings clear of the floating glass nav */
+  scroll-padding-top: 104px;
 }
 
 article .heading-hook {
@@ -478,6 +480,16 @@ article .heading-hook {
 
 .skip-nav {
   @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
+  z-index: 100;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.dark .skip-nav {
+  background: var(--color-accent_dark);
+  color: #000;
 }
 
 #skip {
@@ -679,6 +691,10 @@ pre[class*="language-"] {
 
 /* ---------------------Accessibility & motion-------------------- */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   body::before,
   .sheen::after {
     animation: none !important;
@@ -689,4 +705,88 @@ pre[class*="language-"] {
   .btn-ghost {
     transition: none;
   }
+}
+
+/* ---------------------Small-screen performance budget-------------------- */
+@media (max-width: 768px) {
+  :root {
+    /* lighter blur keeps scrolling buttery on phone GPUs */
+    --glass-blur: blur(14px) saturate(160%);
+  }
+
+  body::before {
+    /* no drifting full-screen animation on phones — pure battery + paint win */
+    inset: -6%;
+    animation: none;
+  }
+}
+
+/* keyboard focus for borderless fields */
+.input-ghost:focus-visible {
+  outline: 2px solid rgba(214, 64, 0, 0.7);
+  outline-offset: 2px;
+}
+
+.dark .input-ghost:focus-visible {
+  outline-color: rgba(255, 121, 0, 0.7);
+}
+
+/* ---------------------Code tokens: AA contrast on light glass-------------------- */
+html:not(.dark) .token.block-comment,
+html:not(.dark) .token.cdata,
+html:not(.dark) .token.comment,
+html:not(.dark) .token.doctype,
+html:not(.dark) .token.prolog,
+html:not(.dark) .token.inserted {
+  color: #166534;
+}
+
+html:not(.dark) .token.punctuation {
+  color: #525252;
+}
+
+html:not(.dark) .token.attr-name,
+html:not(.dark) .token.deleted,
+html:not(.dark) .token.namespace,
+html:not(.dark) .token.tag {
+  color: #be185d;
+}
+
+html:not(.dark) .token.function-name {
+  color: #1d4ed8;
+}
+
+html:not(.dark) .token.boolean,
+html:not(.dark) .token.function,
+html:not(.dark) .token.number {
+  color: #b91c1c;
+}
+
+html:not(.dark) .token.class-name,
+html:not(.dark) .token.constant,
+html:not(.dark) .token.property,
+html:not(.dark) .token.symbol {
+  color: #9a3412;
+}
+
+html:not(.dark) .token.atrule,
+html:not(.dark) .token.builtin,
+html:not(.dark) .token.important,
+html:not(.dark) .token.keyword,
+html:not(.dark) .token.selector {
+  color: #a21caf;
+}
+
+html:not(.dark) .token.attr-value,
+html:not(.dark) .token.char,
+html:not(.dark) .token.regex,
+html:not(.dark) .token.string,
+html:not(.dark) .token.variable {
+  color: #115e59;
+}
+
+html:not(.dark) .token.entity,
+html:not(.dark) .token.operator,
+html:not(.dark) .token.url {
+  color: #854d0e;
 }

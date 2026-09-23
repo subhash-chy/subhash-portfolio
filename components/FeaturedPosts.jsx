@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { Button } from ".";
-
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import { getPosts } from "../data";
+import Button from "./Button";
 import { shuffle } from "../utils/shuffle";
 
 function FeaturedPosts() {
@@ -10,7 +9,10 @@ function FeaturedPosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getPosts().then((result) => setPosts(result));
+    fetch("/api/posts")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((result) => setPosts(Array.isArray(result) ? result : []))
+      .catch(() => setPosts([]));
   }, []);
 
   const randomizedPosts = shuffle(posts);
@@ -18,7 +20,11 @@ function FeaturedPosts() {
   return (
     <div className="mt-20 space-y-5">
       <h1 className="relative mt-10" id="featured-post-component">
-        <a className="heading-hook" href="#featured-post-component">
+        <a
+          className="heading-hook"
+          href="#featured-post-component"
+          aria-label="Permalink to this section"
+        >
           <span className="icon icon-link"></span>
         </a>
 
@@ -42,17 +48,15 @@ function FeaturedPosts() {
           if (index > 2) return;
           else if (router.asPath === `/blog/${post.node.slug}`) return;
           return (
-            <div
+            <Link
               key={index + 1}
-              className="py-5 px-6 mb-4 glass glass-subtle glass-edge glass-hover sheen rounded-2xl transform transition-all cursor-pointer"
-              onClick={() => {
-                router.push(`/blog/${post.node.slug}`);
-              }}
+              href={`/blog/${post.node.slug}`}
+              className="block py-5 px-6 mb-4 glass glass-subtle glass-edge glass-hover sheen rounded-2xl cursor-pointer"
             >
               <div className="md:text-lg">
                 <span className="mr-2">0{index + 1}.</span> {post.node.title}
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

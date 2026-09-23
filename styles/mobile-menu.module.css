@@ -3,8 +3,8 @@
 
 .burger {
   transition: opacity 300ms ease;
-  width: 25px;
-  height: 25px;
+  width: 48px;
+  height: 48px;
   position: relative;
 }
 

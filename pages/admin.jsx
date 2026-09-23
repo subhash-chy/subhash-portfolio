@@ -72,6 +72,7 @@ function Admin() {
             <div className="space-y-2">
               <label htmlFor="email">Admin Email</label>
               <input
+                id="email"
                 ref={emailRef}
                 className="input-custom"
                 type="email"

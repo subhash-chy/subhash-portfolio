@@ -59,7 +59,7 @@ function Navbar() {
             onClick={() => {
               setTheme(theme === "light" ? "dark" : "light");
             }}
-            className="glass glass-edge cursor-pointer rounded-full p-2.5 text-accent dark:text-accent_dark hover:scale-105 transition"
+            className="glass glass-edge cursor-pointer rounded-full p-3 text-accent dark:text-accent_dark hover:scale-105 transition"
           >
             {mounted &&
               (theme === "light" ? (

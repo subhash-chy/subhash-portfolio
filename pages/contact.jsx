@@ -47,6 +47,7 @@ function Contact() {
             <div className="space-y-2">
               <label htmlFor="name">Your Name</label>
               <input
+                id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input-custom"
@@ -58,6 +59,7 @@ function Contact() {
             <div className="space-y-2">
               <label htmlFor="email">Your E-mail</label>
               <input
+                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="input-custom"
@@ -70,6 +72,7 @@ function Contact() {
             <div className="space-y-2">
               <label htmlFor="message">Your Message</label>
               <textarea
+                id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="input-custom"

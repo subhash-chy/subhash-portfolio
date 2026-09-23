@@ -1,16 +1,19 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from ".";
-import useSWR from "swr";
 
 function Newsletter() {
   const inputRef = useRef();
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("Subscribe");
-  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const [subscriberCount, setSubscriberCount] = useState(null);
 
-  const { data } = useSWR("/api/subscribers", fetcher);
-  const subscriberCount = data?.total_items;
+  useEffect(() => {
+    fetch("/api/subscribers")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => setSubscriberCount(data?.total_items ?? 0))
+      .catch(() => setSubscriberCount(0));
+  }, []);
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -26,11 +29,19 @@ function Newsletter() {
       },
       method: "POST",
     })
-      .then(() => {
-        setMessage("Subscribed!");
+      .then(async (response) => {
+        const data = await response.json().catch(() => ({}));
+        if (response.ok && !data.error) {
+          setMessage("Subscribed!");
+        } else {
+          setMessage("Try again later");
+        }
         setLoading(false);
       })
-      .catch((error) => console.log(error))
+      .catch(() => {
+        setMessage("Try again later");
+        setLoading(false);
+      })
       .then(() => {
         inputRef.current.value = "";
         setTimeout(() => {
@@ -55,12 +66,13 @@ function Newsletter() {
 
         {/* Newsletter form */}
         <form className="space-y-5" onSubmit={subscribe}>
-          <div className="flex flex-col md:flex-row gap-5 md:gap-0">
+          <div className="flex flex-col md:flex-row gap-4">
             <input
               ref={inputRef}
               className="input-custom"
               type="email"
               name="email"
+              aria-label="Email address"
               placeholder="john@gmail.com"
               required
             />
@@ -69,7 +81,7 @@ function Newsletter() {
             </Button>
           </div>
           <div className="flex items-center justify-between">
-            <p className="opacity-50">
+            <p className="text-neutral-600 dark:text-neutral-400">
               {subscriberCount > 0
                 ? `${subscriberCount} Subscribers`
                 : `No Subscriber`}

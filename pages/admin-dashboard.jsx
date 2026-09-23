@@ -124,6 +124,7 @@ function AdminDashboard() {
                   Want to send some message to your subscribers?
                 </label>
                 <textarea
+                  id="message"
                   ref={messageRef}
                   className="input-custom"
                   name="message"

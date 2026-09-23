@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { FeaturedPosts } from ".";
+import FeaturedPosts from "./FeaturedPosts";
 import { TiInfo, TiWarning, TiBeaker } from "react-icons/ti";
 
 // Creating a custom Link comp
@@ -30,15 +29,20 @@ const CustomLink = (props) => {
   );
 };
 
-//   creating a Image Comp
+// Images inside MDX can come from any CDN, so they load directly (never
+// through the image optimizer) — lazy + async, with a fixed 16:9 box so
+// there is zero layout shift while they load.
 const CustomImage = (props) => (
-  <Image
+  // eslint-disable-next-line @next/next/no-img-element
+  <img
     {...props}
-    className="rounded-2xl w-full h-auto object-cover ring-1 ring-white/50 dark:ring-white/10 shadow-[0_10px_36px_rgba(20,20,40,0.14)]"
+    src={props.src}
+    alt={props.alt || ""}
     width={1920}
     height={1080}
-    alt={props.alt}
-    quality={70}
+    loading="lazy"
+    decoding="async"
+    className="rounded-2xl w-full h-auto object-cover ring-1 ring-white/50 dark:ring-white/10 shadow-[0_10px_36px_rgba(20,20,40,0.14)]"
   />
 );
 

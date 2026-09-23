@@ -50,6 +50,7 @@ export async function getStaticProps({ params }) {
             {
               properties: {
                 className: ["heading-hook"],
+                ariaLabel: "Permalink to this section",
               },
             },
           ],

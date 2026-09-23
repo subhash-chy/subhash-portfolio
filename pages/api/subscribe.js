@@ -12,6 +12,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Email is required" });
   }
 
+  if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_AUDIENCE_ID) {
+    return res
+      .status(200)
+      .json({ error: "Newsletter is not configured right now." });
+  }
+
   try {
     await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
       email_address: email,

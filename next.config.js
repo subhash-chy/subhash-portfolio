@@ -10,5 +10,7 @@ module.exports = {
       { protocol: "https", hostname: "example.com" },
     ],
     formats: ["image/avif", "image/webp"],
+    qualities: [70, 75],
+    minimumCacheTTL: 2678400,
   },
 };

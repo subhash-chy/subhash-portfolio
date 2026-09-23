@@ -9,9 +9,18 @@ function Document(props) {
         <meta name="theme-color" content="#171717" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
 
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
         <link
           rel="preload"
           href="/fonts/Poppins-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Poppins-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

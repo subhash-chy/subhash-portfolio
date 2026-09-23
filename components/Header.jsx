@@ -29,6 +29,7 @@ function Header(props) {
               src={"/profile-pic.png"}
               alt="Subash Chaudhary - A blogger and Front-End developer"
               fill
+              priority
               sizes="128px"
               className="rounded-full object-cover"
             />
@@ -48,13 +49,18 @@ function Header(props) {
             {author && author_photo && (
               <div className="flex flex-col md:flex-row justify-between gap-5">
                 <div className="flex items-center gap-5">
+                  {/* Author photos come from the CMS and load directly (never
+                      through the optimizer) so they work from any network */}
                   <div className="w-10 h-10 relative glass-ring">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={author_photo}
                       alt={author}
-                      fill
-                      sizes="40px"
-                      className="rounded-full object-cover"
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      decoding="async"
+                      className="rounded-full object-cover w-10 h-10"
                     />
                   </div>
                   <p className="text-xs md:text-base">{author}</p>
@@ -77,6 +83,7 @@ function Header(props) {
                   className="input-ghost"
                   type="search"
                   name="search"
+                  aria-label="Search blogs"
                   placeholder={searchbar.placeholder}
                   onChange={(e) => changeSearch(e.target.value)}
                 />

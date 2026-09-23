@@ -37,7 +37,7 @@ const Roadmap = (props) => {
                 </p>
                 <h2 className="w-full md:text-3xl">{data.title}</h2>
               </div>
-              <p className="max-w-full opacity-80">{data.description}</p>
+              <p className="text-neutral-600 dark:text-neutral-400">{data.description}</p>
               {data.link && (
                 <Button
                   onClick={() => {

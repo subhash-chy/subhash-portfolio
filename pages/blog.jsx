@@ -29,11 +29,11 @@ function Blog({ posts }) {
             {filteredBlogPosts
               .map((post, index) => (
                 <Link key={index} href={`/blog/${post.node.slug}`} passHref>
-                  <div className="glass glass-edge glass-hover sheen p-4 sm:p-8 rounded-[20px] cursor-pointer transition-all ">
+                  <div className="glass glass-edge glass-hover sheen p-4 sm:p-8 rounded-[20px] cursor-pointer ">
                     <span className="md:text-xl font-bold">
                       {post.node.title}
                     </span>
-                    <p className="mt-2 opacity-70">
+                    <p className="mt-2 text-neutral-600 dark:text-neutral-400">
                       {post.node.metaDescription}
                     </p>
                   </div>
